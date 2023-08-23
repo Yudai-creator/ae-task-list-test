@@ -19,30 +19,24 @@
         <div id="add-task-secondary-actions" class="flex gap-8">
           <div>
             <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md flex gap-2">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize-2 stroke-gray-500">
-                <polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline>
-                <line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line>
-              </svg>
+              <i data-feather="maximize-2"></i>
               Open
             </button>
           </div>
           <div class="flex gap-2">
             <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md flex gap-2">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar stroke-gray-500">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
+              <i data-feather="calendar"></i>
               Today
             </button>
-            <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md">
+            <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md flex gap-2">
+              <i data-feather="unlock"></i>
               Public
             </button>
-            <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md">
+            <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md flex gap-2">
+              
               Highlight
             </button>
-            <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md">
+            <button class="px-4 py-2 border-2 border-gray-300 text-gray-500 rounded-md flex gap-2">
               Estimation
             </button>
           </div>
@@ -61,6 +55,13 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import feather from 'feather-icons'
+
+
+onMounted(() => {
+  feather.replace();
+})
 
 </script>
 
