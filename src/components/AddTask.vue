@@ -1,17 +1,20 @@
 <template>
     <div :class="`flex flex-col gap-4 ${isClicked === true ? 'shadow-md' : ''}`">
       <!-- start if clicked, show next section -->
-      <div id="add-task-bar" class="flex gap-2 p-3 border-b border-gray-100">
-        <div id="add-task-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-square">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <line x1="12" y1="8" x2="12" y2="16"></line>
-            <line x1="8" y1="12" x2="16" y2="12"></line>
-          </svg>
+      <div id="add-task-bar" class="flex justify-between p-3 border-b border-gray-100">
+        <div class="flex gap-2 w-3/4">
+          <div id="add-task-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-plus-square">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+          </div>
+          <div id="add-task-field" class="w-full">
+            <input @click="showTaskActions" v-model="taskInput" type="text" placeholder="Type to add new task" class="w-full">
+          </div>
         </div>
-        <div id="add-task-field" class="w-full">
-          <input @click="showTaskActions" v-model="taskInput" type="text" placeholder="Type to add new task" class="w-full">
-        </div>
+        <img v-if="isClicked" width="30" :class="`${taskInput != '' ? 'opacity-100' : ' opacity-25'}`" src="../assets/imgs/figma_pfp.png" alt="me">
       </div>
 
       <div v-html="parsedInput"></div>
