@@ -14,7 +14,7 @@
             <input @click="showTaskActions" v-model="taskInput" type="text" placeholder="Type to add new task" class="w-full">
           </div>
         </div>
-        <img v-if="isClicked" width="30" :class="`${taskInput != '' ? 'opacity-100' : ' opacity-25'}`" src="../assets/imgs/figma_pfp.png" alt="me">
+        <img-avatar :is-clicked="isClicked" :task-input="taskInput"/>
       </div>
 
       <div v-html="parsedInput"></div>
@@ -59,6 +59,7 @@
 </template>
 
 <script setup>
+import ImgAvatar from './imgs/ImgAvatar.vue';
 import { useTaskStore } from '../stores/taskStore';
 import {ref, computed} from 'vue'
 
