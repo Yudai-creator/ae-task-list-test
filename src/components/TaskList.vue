@@ -1,5 +1,7 @@
 <template>
-    <task v-for="(task, index) in tasks" :key="index" :task="task"/>
+    <div class="flex flex-col gap-4">
+        <task v-for="(task, index) in tasks" :key="index" :task="task"/>
+    </div>
 </template>
 
 <script setup>

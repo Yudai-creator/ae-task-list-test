@@ -24,17 +24,14 @@
         <div id="add-task-secondary-actions" class="flex gap-8">
           <div>
             <button :class="`px-4 py-2 ${taskInput != '' ? 'border-gray-300 text-gray-500 cursor-pointer' : 'border-gray-200 text-gray-200 cursor-default'} border-2   rounded-md flex gap-2`">
-              <i data-feather="maximize-2"></i>
               Open
             </button>
           </div>
           <div class="flex gap-2">
             <button :class="`px-4 py-2 ${taskInput != '' ? 'border-gray-300 text-gray-500 cursor-pointer' : 'border-gray-200 text-gray-200 cursor-default'} border-2   rounded-md flex gap-2`">
-              <i data-feather="calendar"></i>
               Today
             </button>
             <button :class="`px-4 py-2 ${taskInput != '' ? 'border-gray-300 text-gray-500 cursor-pointer' : 'border-gray-200 text-gray-200 cursor-default'} border-2   rounded-md flex gap-2`">
-              <i data-feather="unlock"></i>
               Public
             </button>
             <button :class="`px-4 py-2 ${taskInput != '' ? 'border-gray-300 text-gray-500 cursor-pointer' : 'border-gray-200 text-gray-200 cursor-default'} border-2   rounded-md flex gap-2`">
@@ -70,7 +67,6 @@ const taskStore = useTaskStore();
 
 function showTaskActions () {
     isClicked.value = !isClicked.value
-    console.log(isClicked.value)
 }
 
 const addButtonLabel = computed(() => {
@@ -82,6 +78,7 @@ const addTask = () => {
   if (taskInput.value.trim() !== '') {
     taskStore.addTask(taskInput.value);
     taskInput.value = '';
+    isClicked.value = !isClicked.value
   }
 };
 
