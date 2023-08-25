@@ -8,7 +8,7 @@
         :text="task"
         @remove="removeTask(index)"
       /> -->
-      <task-list :tasks="tasks"/>
+      <task-list :tasks="taskStore.tasks"/>
     </div>
   </div>
 </template>
@@ -18,30 +18,12 @@ import { ref } from 'vue';
 import AddTask from './components/AddTask.vue';
 import TaskList from './components/TaskList.vue';
 
-import Task from './components/Task.vue';
+import { useTaskStore } from './stores/taskStore';
 
 import { onMounted } from 'vue';
 import feather from 'feather-icons'
 
-const tasks = ref([
-  {
-    id:1,
-    text: "Esto es una tareita de prueba",
-  }
-]);
-
-// const addTask = (task) => {
-//   tasks.value = [...tasks, task]
-// }
-
-// const addTask = (task) => {
-//   tasks.value.push(task);
-// };
-
-// const removeTask = (index) => {
-//   tasks.value.splice(index, 1);
-// };
-
+const taskStore = useTaskStore();
 
 onMounted(() => {
   feather.replace();

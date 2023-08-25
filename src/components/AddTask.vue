@@ -47,23 +47,22 @@
           <button @click="showTaskActions" class="px-4 py-2 bg-slate-200 rounded-md disabled">
             Cancel
           </button>
-          <button class="px-4 py-2 bg-blue-800 w-20 text-white rounded-md">
+          <button @click="addTask" class="px-4 py-2 bg-blue-800 w-20 text-white rounded-md">
             {{addButtonLabel}}
           </button>
         </div>
       </div>
-      <!-- <task :text="taskInput"/> -->
     </div>
 </template>
 
 <script setup>
-import { useState } from '@/composables/state'
-import {ref, computed, defineEmits} from 'vue'
+import { useTaskStore } from '../stores/taskStore';
+import {ref, computed} from 'vue'
 
 const isClicked = ref(false)
 const taskInput = ref('')
 
-// const emit = defineEmits(['inFocus', 'submit'])
+const taskStore = useTaskStore();
 
 function showTaskActions () {
     isClicked.value = !isClicked.value
@@ -74,26 +73,18 @@ const addButtonLabel = computed(() => {
   return taskInput.value ? 'Add' : 'Ok';
 });
 
+// Using store
 const addTask = () => {
-  if (newTask.value.trim() !== '') {
-    emit('task-added', newTask.value);
+  if (taskInput.value.trim() !== '') {
+    taskStore.addTask(taskInput.value);
     taskInput.value = '';
   }
 };
 
+const cancel = () => {
+  taskInput.value = '';
+};
 
-/*
-function addTask() {
-    console.log("submited")
-    if (addButtonLabel.value === 'Add') {
-        const newTask = {
-            id: Math.floor(Math.random() * 1000),
-            text: taskInput
-        }
-        taskInput.value = ''
-    }
-}
-*/
 
 const parsedInput = computed(() => {
   let parsedText = '';
