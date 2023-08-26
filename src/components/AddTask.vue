@@ -11,7 +11,7 @@
             </svg>
           </div>
           <div id="add-task-field" class="w-full">
-            <input @click="showTaskActions" v-model="taskInput" type="text" placeholder="Type to add new task" class="w-full">
+            <input id="task-input" @click="showTaskActions" v-model="taskInput" type="text" placeholder="Type to add new task" class="w-full">
           </div>
         </div>
         <img-avatar :is-clicked="isClicked" :task-input="taskInput"/>

@@ -1,5 +1,6 @@
 <template>
   <div class="wrapper">
+    <h1 class="mb-8">Task List</h1>
     <add-task/>
     <div class="tasks-list mt-4">
       <task-list  :tasks="taskStore.tasks"/>
