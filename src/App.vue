@@ -1,13 +1,7 @@
 <template>
   <div class="wrapper">
     <add-task/>
-    <div class="tasks-list p-3">
-      <!-- <task
-        v-for="(task, index) in tasks"
-        :key="index"
-        :text="task"
-        @remove="removeTask(index)"
-      /> -->
+    <div class="tasks-list mt-4">
       <task-list  :tasks="taskStore.tasks"/>
     </div>
   </div>

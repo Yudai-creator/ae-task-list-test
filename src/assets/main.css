@@ -5,9 +5,14 @@
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
-
+  padding: 1rem;
   font-weight: normal;
+}
+
+@media (min-width: 370px){
+  #app{
+    padding: 2rem;
+  }
 }
 
 *,
