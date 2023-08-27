@@ -1,6 +1,6 @@
 <template>
     <div class="w-full">
-        <div :class="`${isClicked === true ? 'shadow-md' : ''} border-gray-100 transition-all hover:shadow-sm`">
+        <div :class="`${isClicked === true ? 'shadow-sm' : ''} border-gray-100 transition-all hover:shadow-sm`">
             <div 
             :class="`flex items-center gap-2 p-3 ${isClicked === true ? 'shadow-md' : ''} border-b border-gray-100 transition-all hover:shadow-sm`"
             >
@@ -60,16 +60,19 @@
                     </div>
                 </div>
                 <div class="flex gap-2">
-                    <button @click="showTaskActions" class="px-4 py-2 bg-slate-200 rounded-md lg:block hidden">
-                        Cancel
-                    </button>
-                    <button v-if="isClicked" @click="deleteTask" class="lg:px-4 lg:py-2 p-2 bg-blue-800 lg:w-20 text-white rounded-md flex items-center justify-center">
-                        <svg class="lg:hidden block" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                        <p class="lg:block hidden">Delete</p>
-                    </button>
+                    <btn-task
+                        @click="showTaskActions"
+                        btn-name="Cancel"
+                        btn-styles="px-4 py-2 bg-slate-200 rounded-md lg:block hidden"
+                    />
+                    <btn-task
+                        v-if="isClicked"
+                        @click="deleteTask"
+                        btn-name="Delete"
+                        btn-styles="lg:px-4 lg:py-2 p-2 bg-blue-800 lg:w-20 text-white rounded-md flex items-center justify-center"
+                        btn-img="https://ik.imagekit.io/u33i3sss0/test/x_SxEU5jH9e.png?updatedAt=1693110407742"
+                        btn-img-styles="lg:hidden block"
+                    />
                 </div>
             </div>
         </div>
@@ -77,6 +80,7 @@
 </template>
 
 <script setup>
+import BtnTask from './BtnTask.vue';
 import ImgAvatar from './imgs/ImgAvatar.vue';
 import { ref } from 'vue';
 import { useTaskStore } from '../stores/taskStore';
